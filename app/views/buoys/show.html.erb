@@ -2,7 +2,7 @@
   <div class="card">
     <h1><%= @buoy.name %></h1>
     <% if @buoy.photo.attached? %>
-      <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+      <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 300, crop: :fit %>
     <% end %>
     <div class="details">
       <p><%=  @buoy.descritpion%></p>
