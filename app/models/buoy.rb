@@ -3,5 +3,5 @@ class Buoy < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
   validates :name, :price, presence: true
-  validates :price, format: {:integer}
+  validates :price, numericality: { only_integer: true }
 end
