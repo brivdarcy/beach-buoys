@@ -1,8 +1,4 @@
 // Specific CSS for your home-page
-.logo-large {
-  width: 56px;
-  border-radius: 50%;
-}
 .banner {
   background-size: cover;
   background-position: center;
@@ -11,21 +7,23 @@
 
 .banner h1 {
   margin: 0;
-  color: white;
+  color: #febf63;
+  word-spacing: 1rem;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 46px;
   font-weight: bold;
 }
 
 .banner p {
-  font-size: 20px;
-  color: white;
+  font-size: 28px;
+  color: #ade498;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
 .navbar-beachbuoys {
   justify-content: space-between;
-  background: white;
+  background: #febf63;
 }
 
 .navbar-beachbuoys .navbar-collapse {
@@ -35,9 +33,22 @@
 .navbar-beachbuoys .navbar-brand img {
   width: 40px;
 }
+.nav-item.active{
+  color: #ade498;
+}
+
+.logo-large {
+  width: 70px;
+  border-radius: 50%;
+}
+.btn-to-index {
+  background-color: #febf63;
+  padding: 5px;
+  border-radius: 5px;
+}
 
 .footer {
-  background: #F4F4F4;
+  background: #7fdbda;
   display: flex;
   align-items: center;
   justify-content: space-between;
