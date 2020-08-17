@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card">
     <h1><%= @buoy.name %></h1>
-    <%= cl_image_tag @buoy.photo.key, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+    <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
     <div class="details">
       <p><%=  @buoy.descritpion%></p>
       <p><%= @buoy.price %></p>
