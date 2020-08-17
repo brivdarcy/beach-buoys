@@ -1,4 +1,9 @@
 class BuoysController < ApplicationController
+
+  def show
+    @buoy = Buoy.find(params[:id])
+  end
+  
     def index
     @buoys = Buoy.all
   end
