@@ -1,0 +1,9 @@
+<div class="container" id="form-buoys">
+  <%= simple_form_for(@buoys) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+      <%= f.button :submit, 'Create' %>
+  <% end %>
+</div>

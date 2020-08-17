@@ -5,4 +5,5 @@ class Buoy < ApplicationRecord
   validates :name, :price, presence: true
   validates :price, format: {:integer}
   has_one_attached :photo
+  validates :price, numericality: { only_integer: true }
 end
