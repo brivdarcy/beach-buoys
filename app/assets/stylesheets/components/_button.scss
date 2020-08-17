@@ -1,0 +1,10 @@
+.btn-create {
+  background: #febf63 !important;
+  opacity: 1;
+  border: 1px solid #febf63;
+
+  &:hover {
+    opacity: 0.8;
+    border: 1px solid #febf63;
+  }
+}
