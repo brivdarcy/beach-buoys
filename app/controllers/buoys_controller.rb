@@ -1,0 +1,2 @@
+class BuoysController < ApplicationController
+end
