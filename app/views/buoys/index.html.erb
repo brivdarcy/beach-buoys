@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>Buoys</h1>
 
 <!-- <div class="cards">
@@ -14,7 +16,9 @@
 <div class="cards">
   <% @buoys.each do |buoy| %>
     <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-image">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      </div>
       <div class="card-trip-infos">
         <div>
           <h2><%= buoy.name %></h2>
@@ -25,4 +29,6 @@
       </div>
     </div>
   <% end %>
+</div>
+
 </div>
