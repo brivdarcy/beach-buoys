@@ -17,7 +17,7 @@
   <% @buoys.each do |buoy| %>
     <div class="card-trip">
       <div class="card-trip-image">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
       </div>
       <div class="card-trip-infos">
         <div>
@@ -31,4 +31,7 @@
   <% end %>
 </div>
 
+<%= link_to "Ajoute une bouée", new_buoy_path  %>
 </div>
+
+
