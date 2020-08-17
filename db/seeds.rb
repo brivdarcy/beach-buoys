@@ -25,7 +25,7 @@ second.save!
 
 third = Buoy.new(name: "Willy", description: "Willy the orca", price: 4)
 third.user = user
-third.photo.attach(io: File.open('app/assets/images/orca_.jpg'), filename: 'orca_.jpg')
+third.photo.attach(io: File.open('app/assets/images/orca.jpg'), filename: 'orca.jpg')
 third.save!
 
 fourth = Buoy.new(name: "Rainbow", description: "Rainbow the licorn", price: 6)
