@@ -1,11 +1,11 @@
 class BuoysController < ApplicationController
+  before_action :set_buoy, only: [:show, :edit, :update ]
 
-  def show
-    @buoy = Buoy.find(params[:id])
+  def index
+    @buoys = Buoy.all
   end
   
-    def index
-    @buoys = Buoy.all
+  def show
   end
   
   def new
@@ -14,18 +14,30 @@ class BuoysController < ApplicationController
 
   def create
     @buoy = Buoy.new(buoy_params)
+    if @buoy.save
+    redirect_to buoy_path(@buoy)
+    raise
+    else
+      render :new
+    end
   end
 
   def edit
-    @buoy = Buoy.find(params[:id])
   end
 
   def update
-    @buoy = Buoy.find(params[:id])
-    @buoy.update(buoy_params)
+    if @buoy.update(buoy_params)
+    redirect_to buoys_path
+    else
+      render :edit
+    end
   end
 
   private
+
+  def set_buoy
+    @buoy = Buoy.find(params[:id])
+  end
 
   def buoy_params
     params.require(:buoy).permit(:name, :description, :price, :photo)
