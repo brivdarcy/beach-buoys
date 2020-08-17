@@ -4,10 +4,10 @@ class BuoysController < ApplicationController
   def index
     @buoys = Buoy.all
   end
-  
+
   def show
   end
-  
+
   def new
     @buoy = Buoy.new
   end
@@ -16,7 +16,7 @@ class BuoysController < ApplicationController
     @buoy = Buoy.new(buoy_params)
     if @buoy.save
     redirect_to buoy_path(@buoy)
-    raise
+
     else
       render :new
     end
