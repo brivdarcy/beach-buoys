@@ -1,0 +1,44 @@
+<div class="container">
+
+
+  <div class="profile-element">
+    <div class="profile-title">Prénom</div>
+    <div class="profile-paragraph"><%= @profile.first_name %></div>
+  </div>
+
+  <div class="profile-element">
+    <div class="profile-title">Nom</div>
+    <div class="profile-paragraph"><%= @profile.last_name %></div>
+  </div>
+
+  <div class="profile-element">
+    <div class="profile-title">Email</div>
+    <div class="profile-paragraph"><%= @profile.email %></div>
+  </div>
+
+
+  <%= link_to "Edit profile",  edit_user_registration_path, class:"btn btn-create" %>
+
+  <h1>Mes réservations</h1>
+
+  <div class="my-bookings">
+    <% @bookings.each do |booking| %>
+      <div class="card-product">
+        <% if booking.buoy.photo.attached? %>
+              <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+            <% end %>
+        <h2><%= booking.buoy.name%></h2>
+        <p><%= booking.buoy.price %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="my-buoys">
+    <h1>Mes bouées à louer</h1>
+
+  </div>
+
+
+  <%= link_to "Retour aux bouées", buoys_path, class: "btn btn-outline-secondary" %>
+
+</div>
