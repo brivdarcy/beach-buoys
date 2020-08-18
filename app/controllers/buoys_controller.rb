@@ -1,5 +1,5 @@
 class BuoysController < ApplicationController
-  before_action :set_buoy, only: [:show, :edit, :update ]
+  before_action :set_buoy, only: [:show, :edit, :update]
 
   def index
     @buoys = Buoy.all
