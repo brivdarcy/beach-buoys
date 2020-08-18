@@ -1,16 +1,36 @@
 <div class="container">
   <h1>Details of the buoy you selected</h1>
   <br>
-  <div class="card-product">
-    <% if @buoy.photo.attached? %>
-      <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
-    <% end %>
-    <div class="card-product-infos">
-      <h2><%= @buoy.name %></h2>
-      <p><%=  @buoy.description %></p>
-      <p>Price: <%= @buoy.price %><i class="fas fa-euro-sign"></i></p>
-      <%= link_to "Back to list", buoys_path, class: "btn-create" %>
+  <div class="page">
+    <div class="card-product">
+      <% if @buoy.photo.attached? %>
+        <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+      <% end %>
+      <div class="card-product-infos">
+        <h2><%= @buoy.name %></h2>
+        <p><%=  @buoy.description %></p>
+        <p>Price: <%= @buoy.price %><i class="fas fa-euro-sign"></i></p>
+        <%= link_to "Back to list", buoys_path, class: "btn-create" %>
+      </div>
+    </div>
+
+    <div class="buoy-booking">
+      <div class="form">
+        <h4>Book this buoy !</h4>
+        <form>
+          <div class="input-group input-group-sm">
+            <label class="input-group-text" for="begin">From</label>
+            <input type="text" class="form-control" id="begin" placeholder= "25/08/2020", style="height: 40px">
+          </div>
+          <div class="input-group input-group-sm">
+            <label class="input-group-text" for="end">To</label>
+            <input type="text" class="form-control" id="end" placeholder= "30/08/2020", style="height: 40px">
+          </div>
+          <input type="submit" value="Book" class="btn-create" style="width: 100%">
+        </form>
+      </div>
     </div>
   </div>
 </div>
+
 
