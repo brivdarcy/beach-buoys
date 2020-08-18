@@ -14,6 +14,7 @@ class BuoysController < ApplicationController
 
   def create
   @buoy = Buoy.new(buoy_params)
+  @buoys.user = current_user
     if @buoy.save
     redirect_to buoy_path(@buoy)
     else
