@@ -11,20 +11,24 @@
         <p>📍 <%= @buoy.address %></p>
         <p><%= @buoy.description %></p>
         <p>Pour: <%= @buoy.person_number %> 🙎</p>
-        <p>Prix (1/2 journée): <%= @buoy.price %><i class="fas fa-euro-sign"></i></p>
+        <p>Prix (/jour): <%= @buoy.price %><i class="fas fa-euro-sign"></i></p>
         <%= link_to "🔙", buoys_path, class: "btn-create" %>
       </div>
     </div>
 
-    <div class="buoy-booking">
-      <div class="form">
-        <h4>Book this buoy !</h4>
-        <%= simple_form_for ([@buoy, @booking]) do |f| %>
-        <%= f.input :start_date, as: :date %>
-        <%= f.input :end_date, as: :date %>
-        <%= f.submit "Book", class: "btn-create" %>
+    <div class="container">
+      <div class="form-wrapper">
+        <h4>Reserve ta bouée !</h4>
+        <%= simple_form_for [@buoy, @booking] do |f| %>
+        <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: {id: "range_start", class: "d-none" } %>
+        <%= f.input :end_date, label: false, as: :string, required: false, input_html: {id: "range_end", class: "d-none" } %>
+        <%= f.button :submit, "Réserve", class: "btn-create" %>
         <% end %>
       </div>
     </div>
+    <div
+      id="booking-form-div"
+      data-bookings="<%= @bookings_dates.to_json %>"
+    >
   </div>
 </div>
