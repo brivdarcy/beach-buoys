@@ -11,18 +11,19 @@
         <% end %>
       </div>
       <div class="card-trip-infos">
-        <div>
+        <div class="name">
           <h2><%= buoy.name %></h2>
           <p>📍<%= buoy.address %></p>
           <%= link_to "See details", buoy_path(buoy) %>
         </div>
-        <h2 class="card-trip-pricing"><%= buoy.price %> € half-day</h2>
+        <h3 class="card-trip-pricing"><%= buoy.price %>€/day</h3>
       </div>
     </div>
   <% end %>
 </div>
-
-<%= link_to "Ajoute une bouée", new_buoy_path  %>
+<div class="add-button">
+  <%= link_to "Ajoute une bouée", new_buoy_path, class: "btn-create"%>
+</div>
 </div>
 
 
