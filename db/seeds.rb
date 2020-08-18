@@ -1,5 +1,4 @@
 
-
 puts "Delete buoy"
 Buoy.destroy_all
 
