@@ -19,24 +19,12 @@
     <div class="buoy-booking">
       <div class="form">
         <h4>Book this buoy !</h4>
-        <%=  %>
-        <form>
-
-          <div class="input-group input-group-sm">
-            <label class="input-group-text" for="begin">From</label>
-            <input type="text" class="form-control" id="begin" placeholder= "25/08/2020", style="height: 40px">
-          </div>
-          <div class="input-group input-group-sm">
-            <label class="input-group-text" for="end">To</label>
-            <input type="text" class="form-control" id="end" placeholder= "30/08/2020", style="height: 40px">
-          </div>
-        </form>
         <%= simple_form_for ([@buoy, @booking]) do |f| %>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :date %>
         <%= f.submit "Book", class: "btn-create" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
