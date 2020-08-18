@@ -2,7 +2,7 @@ class Buoy < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :users, through: :bookings
-  validates :name, :price, presence: true
+  validates :name, :price, :address, :person_number, presence: true
   has_one_attached :photo
-  validates :price, numericality: { only_integer: true }
+  validates :price, :person_number, numericality: { only_integer: true }
 end

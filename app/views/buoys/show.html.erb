@@ -1,12 +1,30 @@
 <div class="container">
-  <div class="card">
-    <h1><%= @buoy.name %></h1>
-    <% if @buoy.photo.attached? %>
-      <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
-    <% end %>
-    <div class="details">
-      <p><%=  @buoy.description %></p>
-      <p><%= @buoy.price %></p>
+  <h1>Details of the buoy you selected</h1>
+  <br>
+  <div class="page">
+    <div class="card-product">
+      <% if @buoy.photo.attached? %>
+        <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+      <% end %>
+      <div class="card-product-infos">
+        <h2><%= @buoy.name %></h2>
+        <p>📍 <%= @buoy.address %></p>
+        <p><%= @buoy.description %></p>
+        <p>Pour: <%= @buoy.person_number %> 🙎</p>
+        <p>Prix (1/2 journée): <%= @buoy.price %><i class="fas fa-euro-sign"></i></p>
+        <%= link_to "🔙", buoys_path, class: "btn-create" %>
+      </div>
+    </div>
+
+    <div class="buoy-booking">
+      <div class="form">
+        <h4>Book this buoy !</h4>
+        <%= simple_form_for ([@buoy, @booking]) do |f| %>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :date %>
+        <%= f.submit "Book", class: "btn-create" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

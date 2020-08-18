@@ -6,6 +6,7 @@ class BuoysController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -14,6 +15,7 @@ class BuoysController < ApplicationController
 
   def create
   @buoy = Buoy.new(buoy_params)
+  @buoy.user = current_user
     if @buoy.save
     redirect_to buoy_path(@buoy)
     else
@@ -25,8 +27,9 @@ class BuoysController < ApplicationController
   end
 
   def update
+    @buoy.user = current_user
     if @buoy.update(buoy_params)
-    redirect_to buoy_path(@buoy)
+    redirect_to buoys_path
     else
       render :edit
     end
@@ -39,6 +42,6 @@ class BuoysController < ApplicationController
   end
 
   def buoy_params
-    params.require(:buoy).permit(:name, :description, :price, :photo)
+    params.require(:buoy).permit(:name, :description, :price, :photo, :address, :person_number)
   end
 end
