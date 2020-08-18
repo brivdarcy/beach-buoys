@@ -3,4 +3,8 @@
 @import "buoy-index";
 @import 'buoy_show';
 @import "form";
-@import "profile"
+@import "profile";
+
+.main-container {
+  min-height: calc(100vh - 170px);
+}
