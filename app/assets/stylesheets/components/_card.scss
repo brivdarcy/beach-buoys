@@ -107,9 +107,10 @@
   height: 100%;
   width: 300px;
   object-fit: cover;
-}
-.card-product img:hoover {
-  transform: rotate(180deg);
+
+  &:hover {
+    transform: rotateY(180deg);
+  }
 }
 
 .card-product h2 {
