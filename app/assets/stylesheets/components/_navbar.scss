@@ -10,6 +10,16 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 45px;
 }
 
+.navbar-lewagon .navbar-brand .logo > img {
+  // display:block;
+  width: 45px;
+}
+
+.companu-name {
+  font-size: 46px;
+  color: white;
+  opacity: 0.6;
+}
