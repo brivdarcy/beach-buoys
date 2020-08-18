@@ -13,12 +13,13 @@ class BuoysController < ApplicationController
   end
 
   def create
-  @buoy = Buoy.new(buoy_params)
-    if @buoy.save
-    redirect_to buoy_path(@buoy)
-    else
-      render :new
-    end
+      @buoy = Buoy.new(buoy_params)
+      if @buoy.save
+      redirect_to buoy_path(@buoy)
+
+      else
+        render :new
+      end
   end
 
   def edit
@@ -26,7 +27,7 @@ class BuoysController < ApplicationController
 
   def update
     if @buoy.update(buoy_params)
-    redirect_to buoy_path(@buoy)
+    redirect_to buoys_path
     else
       render :edit
     end
