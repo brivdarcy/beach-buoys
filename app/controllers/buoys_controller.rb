@@ -1,5 +1,5 @@
 class BuoysController < ApplicationController
-  before_action :set_buoy, only: [:show, :edit, :update ]
+  before_action :set_buoy, only: [:show, :edit, :update]
 
   def index
     @buoys = Buoy.all
@@ -14,15 +14,6 @@ class BuoysController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
-      @buoy = Buoy.new(buoy_params)
-      if @buoy.save
-      redirect_to buoy_path(@buoy)
-
-      else
-        render :new
-      end
-=======
   @buoy = Buoy.new(buoy_params)
   @buoy.user = current_user
     if @buoy.save
@@ -30,7 +21,6 @@ class BuoysController < ApplicationController
     else
       render :new
     end
->>>>>>> c26b48b71216ca0be0f45f15c258028c1e625983
   end
 
   def edit
