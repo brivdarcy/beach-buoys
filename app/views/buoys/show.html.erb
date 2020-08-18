@@ -1,36 +1,41 @@
 <div class="container">
-  <h1>Details of the buoy you selected</h1>
   <br>
-  <div class="page">
-    <div class="card-product">
-      <% if @buoy.photo.attached? %>
-        <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
-      <% end %>
-      <div class="card-product-infos">
-        <h2><%= @buoy.name %></h2>
+  <h1>Réserve ta bouée !</h1>
+  <br>
+  <div class="buoy-details d-flex justify-content-between">
+
+    <div class="buoy-img-infos d-flex flex-column">
+
+      <div class="buoy-img">
+        <% if @buoy.photo.attached? %>
+         <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+        <% end %>
+      </div>
+
+      <div class="buoy-infos">
+        <h2><%= @buoy.name.capitalize %></h2>
         <p>📍 <%= @buoy.address %></p>
         <p><%= @buoy.description %></p>
         <p>Pour: <%= @buoy.person_number %> 🙎</p>
-        <p>Prix (/jour): <%= @buoy.price %><i class="fas fa-euro-sign"></i></p>
-        <%= link_to "🔙", buoys_path, class: "btn-create" %>
-      </div>
-    </div>
+        <p>Prix: <%= @buoy.price %> € / Jour</p>
+        <%= link_to "Retour aux Bouées", buoys_path, class: "btn btn-outline-secondary" %>
+      </div>            
 
-    <div class="container">
-      <div class="form-wrapper">
-        <h4>Reserve ta bouée !</h4>
-        <%= simple_form_for [@buoy, @booking] do |f| %>
-        <%= f.input :start_date, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: {id: "range_start", class: "d-none" } %>
+    </div>
+      
+
+    <div class="form-wrapper">
+      <%= simple_form_for [@buoy, @booking] do |f| %>
+        <%= f.input :start_date, label: false, as: :string, required: false, input_html: {id: "range_start", class: "d-none" } %>
         <%= f.input :end_date, label: false, as: :string, required: false, input_html: {id: "range_end", class: "d-none" } %>
         <%= f.button :submit, "Réserve", class: "btn-create", type: "button", data: { toggle: "modal", target: "#exampleModal" } %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-    <div
-      id="booking-form-div"
-      data-bookings="<%= @bookings_dates.to_json %>"
-    >
+    <div id="booking-form-div"
+      data-bookings="<%= @bookings_dates.to_json %>">
+    </div>
   </div>
+      
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
