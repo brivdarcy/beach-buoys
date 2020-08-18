@@ -22,7 +22,7 @@
         <%= simple_form_for ([@buoy, @booking]) do |f| %>
         <%= f.input :start_date, as: :date %>
         <%= f.input :end_date, as: :date %>
-        <%= f.submit "Book", class: "btn-create" %>
+        <%= f.submit "Book", class: "btn-create", id: "book" %>
         <% end %>
       </div>
     </div>
