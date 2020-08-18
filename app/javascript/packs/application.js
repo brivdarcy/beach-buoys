@@ -33,4 +33,4 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
-import { open } from "modal";
+
