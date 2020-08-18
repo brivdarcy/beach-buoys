@@ -8,9 +8,11 @@
       <% end %>
       <div class="card-product-infos">
         <h2><%= @buoy.name %></h2>
-        <p><%=  @buoy.description %></p>
-        <p>Price: <%= @buoy.price %><i class="fas fa-euro-sign"></i></p>
-        <%= link_to "Back to list", buoys_path, class: "btn-create" %>
+        <p>📍 <%= @buoy.address %></p>
+        <p><%= @buoy.description %></p>
+        <p>Pour: <%= @buoy.person_number %> 🙎</p>
+        <p>Prix (1/2 journée): <%= @buoy.price %><i class="fas fa-euro-sign"></i></p>
+        <%= link_to "🔙", buoys_path, class: "btn-create" %>
       </div>
     </div>
 

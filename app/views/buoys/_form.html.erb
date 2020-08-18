@@ -2,6 +2,8 @@
   <%= simple_form_for(@buoy) do |f| %>
     <%= f.input :name, :label => "Nom" %>
     <%= f.input :description, :label => "Description" %>
+    <%= f.input :address, :label => "Localisation" %>
+    <%= f.input :person_number, :label => "Capacité (places)" %>
     <%= f.input :price, :label => "Prix (1/2 journée)" %>
     <%= f.input :photo, as: :file %>
     <div class= "btn btn-warning btn-create">

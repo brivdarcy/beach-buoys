@@ -17,12 +17,14 @@
   <% @buoys.each do |buoy| %>
     <div class="card-trip">
       <div class="card-trip-image">
-        <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+        <% if buoy.photo.attached? %>
+          <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+        <% end %>
       </div>
       <div class="card-trip-infos">
         <div>
           <h2><%= buoy.name %></h2>
-          <p><%= buoy.description %></p>
+          <p>📍<%= buoy.address %></p>
           <%= link_to "See details", buoy_path(buoy) %>
         </div>
         <h2 class="card-trip-pricing"><%= buoy.price %> € half-day</h2>
