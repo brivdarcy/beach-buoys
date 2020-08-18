@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   resources :buoys, except: [:destroy] do
     resources :bookings, only: [:new, :create, :show, :destroy]
   end
-
 end
