@@ -19,7 +19,7 @@ first.user = user
 first.photo.attach(io: File.open('app/assets/images/crocodile.jpg'), filename: 'crocodile.jpg', address: "Le Perchoir 75011 Paris", person_number: 1)
 first.save!
 
-second = Buoy.new(name: "Fliper", description: "Fliper the dolphin", price: 3,, address: "16 rue Cambronne 75015 Paris", person_number: 2)
+second = Buoy.new(name: "Fliper", description: "Fliper the dolphin", price: 3, address: "16 rue Cambronne 75015 Paris", person_number: 2)
 second.user = user
 second.photo.attach(io: File.open('app/assets/images/dolphin.jpg'), filename: 'dolphin.jpg')
 second.save!
