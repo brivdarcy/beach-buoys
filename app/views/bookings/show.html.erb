@@ -1,0 +1,16 @@
+
+<h1>Your bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <div class="card-product">
+    <% if booking.buoy.photo.attached? %>
+          <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+        <% end %>
+    <h2><%= booking.buoy.name%></h2>
+    <p><%= booking.buoy.price %></p>
+  </div>
+<% end %>
+
+<%= link_to "Back to list", buoys_path, class: "btn-create" %>
+
+
