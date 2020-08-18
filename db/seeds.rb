@@ -7,10 +7,11 @@ puts "Delete User"
 User.destroy_all
 
 
-puts "creating users"
+puts "Creating users"
 
 user = User.create(first_name: "Julie", last_name: "Grison", email: "jgrisond@gmail.com", password: "coucou123")
 
+puts "Creating buoys"
 
 first = Buoy.new(name: "Nestor", description: "Nestor the crocodile", price: 5)
 first.user = user
@@ -32,3 +33,5 @@ fourth = Buoy.new(name: "Rainbow", description: "Rainbow the licorn", price: 6)
 fourth.user = user
 fourth.photo.attach(io: File.open('app/assets/images/licorne.jpg'), filename: 'licorne.jpg')
 fourth.save!
+
+puts "Done!"
