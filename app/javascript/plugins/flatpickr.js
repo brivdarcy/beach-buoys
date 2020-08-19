@@ -2,10 +2,15 @@ import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
-const bookingForm = document.getElementById('booking-form-div');
 
 const dynamicPriceCalculator = () => {
-if (bookingForm) {
+const bookingForm = document.getElementById('booking-form-div');
+if (!bookingForm) {
+  console.log("Pas de form")
+  return
+}
+
+console.log('hello');
 const bookings = JSON.parse(bookingForm.dataset.bookings);
   flatpickr("#range_start", {
     plugins: [new rangePlugin({ input: "#range_end"})],
@@ -40,7 +45,6 @@ const bookings = JSON.parse(bookingForm.dataset.bookings);
           });
         })
       }
-    };
 
   // dynamicPriceCalculator();
 }
