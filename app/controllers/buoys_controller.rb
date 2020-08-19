@@ -10,7 +10,7 @@ class BuoysController < ApplicationController
     @bookings = Booking.where(buoy_id: @buoy.id)
     @bookings_dates = @bookings.map do |booking|
       {
-        from: booking.stat_date,
+        from: booking.start_date,
         to: booking.end_date
       }
     end
