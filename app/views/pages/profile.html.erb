@@ -26,7 +26,7 @@
     <% @bookings.each do |booking| %>
       <div class="card-product">
         <% if booking.buoy.photo.attached? %>
-              <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+              <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
             <% end %>
         <h2><%= booking.buoy.name%></h2>
         <p><%= booking.buoy.price %></p>
@@ -36,7 +36,23 @@
 
   <div class="my-buoys">
     <h1>Mes bouées à louer</h1>
-
+      <% @buoys.each do |buoy| %>
+        <div class="card-trip", style="width: 50%">
+      <div class="card-trip-image">
+        <% if buoy.photo.attached? %>
+          <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+        <% end %>
+      </div>
+      <div class="card-trip-infos">
+        <div class="name">
+          <h2><%= buoy.name %></h2>
+          <p>📍<%= buoy.address %></p>
+          <%= link_to "Voir détails", buoy_path(buoy) %>
+        </div>
+        <h3 class="card-trip-pricing"><%= buoy.price %>€ / jour</h3>
+      </div>
+    </div>
+      <% end %>
   </div>
 
 
