@@ -30,7 +30,8 @@
         <%= f.input :end_date, label: false, as: :string, required: false, input_html: {id: "range_end", class: "d-none" } %>
         <p>Réservation pour <span id="total-days">0</span> jours</p>
         <p>Prix total : <span id="total-price">0</span> € </p>
-        <%= f.button :submit, "Réserve", class: "btn-create", type: "button", data: { toggle: "modal", target: "#exampleModal" } %>
+        <%#= f.button :submit, "Réserve", class: "btn-create", type: "button", data: { toggle: "modal", target: "#exampleModal" } %>
+        <%= f.button :submit, "Réserve", class: "btn-create" %>
       <% end %>
     </div>
     <div id="booking-form-div"
