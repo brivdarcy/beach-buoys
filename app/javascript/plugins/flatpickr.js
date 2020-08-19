@@ -4,6 +4,7 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 const bookingForm = document.getElementById('booking-form-div');
 
+const dynamicPriceCalculator = () => {
 if (bookingForm) {
 const bookings = JSON.parse(bookingForm.dataset.bookings);
   flatpickr("#range_start", {
@@ -13,33 +14,35 @@ const bookings = JSON.parse(bookingForm.dataset.bookings);
     dateFormat: "Y-m-d",
     "disable": bookings,
   })
+
+  let nbrOfDays = 0;
+  const startDate = document.getElementById("range_start");
+  const endDate = document.getElementById("range_end");
+
+  const dynamicPrice = () => {
+    let dateDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value)
+    nbrOfDays = dateDiffInMilliseconds / 86400000;
+    return nbrOfDays;
+  };
+
+  // dynamicPrice();
+
+  const totalDays = document.getElementById("total-days")
+  const buoyPricePerDay = document.getElementById("buoy-price-per-day").innerText;
+  const totalPriceElement = document.getElementById("total-price");
+
+
+      if(startDate && endDate) {
+        [startDate, endDate].forEach(date => {
+          date.addEventListener("change", (event) => {
+            totalDays.innerText = dynamicPrice();
+            totalPriceElement.innerText = dynamicPrice() * buoyPricePerDay;
+          });
+        })
+      }
+    };
+
+  // dynamicPriceCalculator();
 }
 
-let nbrOfDays = 0;
-const startDate = document.getElementById("range_start");
-const endDate = document.getElementById("range_end");
-
-const dynamicPrice = () => {
-  let dateDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value)
-  nbrOfDays = dateDiffInMilliseconds / 86400000;
-  return nbrOfDays;
-};
-
-dynamicPrice();
-
-const totalDays = document.getElementById("total-days")
-const buoyPricePerDay = document.getElementById("buoy-price-per-day").innerText;
-const totalPriceElement = document.getElementById("total-price");
-
-const dynamicPriceCalculator = () => {
-  if(startDate && endDate) {
-    [startDate, endDate].forEach(date => {
-      date.addEventListener("change", (event) => {
-        totalDays.innerText = dynamicPrice();
-        totalPriceElement.innerText = dynamicPrice() * buoyPricePerDay;
-      });
-    })
-  }
-};
-
-dynamicPriceCalculator();
+export {dynamicPriceCalculator}
