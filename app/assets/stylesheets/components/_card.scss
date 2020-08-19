@@ -59,19 +59,20 @@
 .card-trip img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .card-trip h2 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
-  text-shadow: 0 0 2px rgba(0,0,0,0.2);
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
   margin: 0;
   margin-bottom: 40px;
 }
 
 .card-trip p {
   font-size: 12px;
+  font-weight: bold;
   opacity: .7;
   margin: 0;
   margin-bottom: 30px;
@@ -106,6 +107,7 @@
   overflow: hidden;
   height: 120px;
   background: #ede682;
+  opacity: 0.1;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
