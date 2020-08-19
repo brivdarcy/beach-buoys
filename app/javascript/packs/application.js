@@ -15,7 +15,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+import "../plugins/flatpickr";
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
@@ -24,12 +24,13 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "../plugins/flatpickr";
+// import "../plugins/flatpickr";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { dynamicPriceCalculator } from '../plugins/flatpickr.js';
 
 document.addEventListener('turbolinks:load', () => {
+  dynamicPriceCalculator()
   // Call your functions here, e.g:
   // initSelect2();
 });
