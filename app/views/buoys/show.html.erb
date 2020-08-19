@@ -31,7 +31,9 @@
         <p>Réservation pour <span id="total-days">0</span> jours</p>
         <p>Prix total : <span id="total-price">0</span> € </p>
         <%#= f.button :submit, "Réserve", class: "btn-create", type: "button", data: { toggle: "modal", target: "#exampleModal" } %>
+        <% if user_signed_in?  %>
         <%= f.button :submit, "Réserve", class: "btn-create" %>
+        <% end %>
       <% end %>
     </div>
     <div id="booking-form-div"

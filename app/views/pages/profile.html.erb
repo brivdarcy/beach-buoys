@@ -12,7 +12,7 @@
     </div>
 
     <div class="profile-element">
-      <div class="profile-title">Email</div>
+      <div class="profile-title">Email></div>
       <div class="profile-paragraph"><%= @profile.email %></div>
     </div>
 
@@ -24,17 +24,21 @@
   <br>
   <div class="my-bookings">
     <% @bookings.each do |booking| %>
-      <div class="card-trip", style="width: 50%" >
-        <div class="card-trip-image">
-        <% if booking.buoy.photo.attached? %>
-          <%= image_tag booking.buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
-        <% end %>
-        </div>
-        <div class="card-trip-infos">
-        <h2><%= booking.buoy.name%></h2>
-       </div>
+      <div class="card-trip profile-buoys">
+          <div class="card-trip-image">
+            <% if booking.buoy.photo.attached? %>
+              <%= image_tag booking.buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+            <% end %>
+          </div>
+          <div class="card-trip-infos">
+            <h2><%= booking.buoy.name%></h2>
+            <p><%= booking.buoy.address %></p>
+            <p><%= booking.buoy.description %></p>
+          </div>
+      </div>
     <% end %>
   </div>
+
   <br>
 
 
@@ -42,7 +46,7 @@
     <h1>Mes bouées à louer</h1>
     <br>
       <% @buoys.each do |buoy| %>
-      <div class="card-trip", style="width: 50%" >
+      <div class="card-trip profile-buoys">
         <div class="card-trip-image">
           <% if buoy.photo.attached? %>
             <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
@@ -63,5 +67,4 @@
 
 
   <%= link_to "Retour", root_path, class: "btn btn-outline-secondary" %>
-
 </div>
