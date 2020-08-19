@@ -3,31 +3,28 @@
   <h1>Réserve ta bouée !</h1>
   <br>
   <div class="buoy-details d-flex justify-content-between">
-
     <div class="buoy-img-infos d-flex flex-column">
-
       <div class="buoy-img">
         <% if @buoy.photo.attached? %>
          <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
         <% end %>
       </div>
-
       <div class="buoy-infos">
         <h2><%= @buoy.name.capitalize %></h2>
         <p>📍 <%= @buoy.address %></p>
         <p><%= @buoy.description %></p>
         <p>Pour: <%= @buoy.person_number %> 🙎</p>
-        <p>Prix: <%= @buoy.price %> € / Jour</p>
+        <p>Prix: <span id="buoy-price-per-day"><%= @buoy.price %></span> € / jour</p>
         <%= link_to "Retour aux Bouées", buoys_path, class: "btn btn-outline-secondary" %>
       </div>            
-
     </div>
       
-
     <div class="form-wrapper">
       <%= simple_form_for [@buoy, @booking] do |f| %>
         <%= f.input :start_date, label: false, as: :string, required: false, input_html: {id: "range_start", class: "d-none" } %>
         <%= f.input :end_date, label: false, as: :string, required: false, input_html: {id: "range_end", class: "d-none" } %>
+        <p>Réservation pour <span id="total-days">0</span> jours</p>
+        <p>Prix total : <span id="total-price">0</span> € </p>
         <%= f.button :submit, "Réserve", class: "btn-create", type: "button", data: { toggle: "modal", target: "#exampleModal" } %>
       <% end %>
     </div>
@@ -37,24 +34,21 @@
   </div>
       
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirmation de votre location</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>Vous avez loué la bouée <%= @buoy.name %> pour un prix de <%= @buoy.price %>euros par jour</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation de votre location</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Vous avez loué la bouée <%= @buoy.name %> pour un prix de <%= @buoy.price %>euros par jour</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
