@@ -1,7 +1,7 @@
 <div class="container">
-
-<h1>Buoys</h1>
-
+<br>
+<h1>Choisis ta bouée:</h1>
+<br>
 <div class="cards">
   <% @buoys.each do |buoy| %>
     <div class="card-trip">
@@ -14,16 +14,19 @@
         <div class="name">
           <h2><%= buoy.name %></h2>
           <p>📍<%= buoy.address %></p>
-          <%= link_to "See details", buoy_path(buoy) %>
+          <%= link_to "Voir détails", buoy_path(buoy) %>
         </div>
-        <h3 class="card-trip-pricing"><%= buoy.price %>€/day</h3>
+        <h3 class="card-trip-pricing"><%= buoy.price %>€ / jour</h3>
       </div>
     </div>
   <% end %>
 </div>
 <div class="add-button">
-  <%= link_to "Ajoute une bouée", new_buoy_path, class: "btn-create"%>
+  <% if user_signed_in? %>
+    <%= link_to "Ajoute une bouée", new_buoy_path, class: "btn-create"%>
+  <% end %>
 </div>
+<br>
 </div>
 
 

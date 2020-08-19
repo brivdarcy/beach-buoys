@@ -15,6 +15,10 @@
         <p><%= @buoy.description %></p>
         <p>Pour: <%= @buoy.person_number %> 🙎</p>
         <p>Prix: <span id="buoy-price-per-day"><%= @buoy.price %></span> € / jour</p>
+        <% if @buoy.user == current_user %>
+        <%= link_to "Modifie les infos de ta bouée", edit_buoy_path, class: "btn btn-outline-secondary" %>
+        <% end %>
+        <br>
         <%= link_to "Retour aux Bouées", buoys_path, class: "btn btn-outline-secondary" %>
       </div>            
     </div>
