@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.buoy = @buoy
     @booking.user = current_user
     if @booking.save!
-      redirect_to buoy_path(@buoy)
+      redirect_to profile_path
     else
       redirect_to buoy_path(@buoy)
     end
