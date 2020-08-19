@@ -14,7 +14,7 @@
         <div class="name">
           <h2><%= buoy.name %></h2>
           <p>📍<%= buoy.address %></p>
-          <%= link_to "Voir détails", buoy_path(buoy) %>
+          <%= link_to "Voir détails", buoy_path(buoy), data: { turbolinks: false } %>
         </div>
         <h3 class="card-trip-pricing"><%= buoy.price %>€ / jour</h3>
       </div>
