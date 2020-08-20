@@ -6,11 +6,9 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 const dynamicPriceCalculator = () => {
 const bookingForm = document.getElementById('booking-form-div');
 if (!bookingForm) {
-  console.log("Pas de form")
   return
 }
 
-console.log('hello');
 const bookings = JSON.parse(bookingForm.dataset.bookings);
   flatpickr("#range_start", {
     plugins: [new rangePlugin({ input: "#range_end"})],
@@ -35,16 +33,26 @@ const bookings = JSON.parse(bookingForm.dataset.bookings);
   const totalDays = document.getElementById("total-days")
   const buoyPricePerDay = document.getElementById("buoy-price-per-day").innerText;
   const totalPriceElement = document.getElementById("total-price");
-
+  const display = document.querySelector(".display")
 
       if(startDate && endDate) {
         [startDate, endDate].forEach(date => {
           date.addEventListener("change", (event) => {
+          display.classList.remove("d-none");
+           if (isNaN(dynamicPrice()) === true) {
+            totalDays.innerText = 0;
+            totalPriceElement.innerText = 0;
+           } else {
             totalDays.innerText = dynamicPrice();
             totalPriceElement.innerText = dynamicPrice() * buoyPricePerDay;
+            const dateFrom = document.getElementById("start-date");
+            const dateTo = document.getElementById("end-date");
+            dateFrom.innerText = startDate.value;
+            dateTo.innerText = endDate.value;
+           }
           });
         })
-      }
+      };
 
   // dynamicPriceCalculator();
 }

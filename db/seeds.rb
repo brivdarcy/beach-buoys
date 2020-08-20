@@ -1,4 +1,8 @@
+puts "Delete bookings"
+Booking.destroy_all
 
+puts "Delete reviews"
+Review.destroy_all
 puts "Delete buoy"
 Buoy.destroy_all
 
