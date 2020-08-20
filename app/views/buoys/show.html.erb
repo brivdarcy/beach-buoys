@@ -18,17 +18,22 @@
         <p>📍 <%= @buoy.address %></p>
         <p>Pour: <%= @buoy.person_number %> 🙎</p>
         <p>Prix: <span id="buoy-price-per-day"><%= @buoy.price %></span> € / jour</p>
-          <div class="reviews">
+        <div class="reviews">
           <% @buoy.reviews.each do |review| %>
             <div class="review-card">
-                <div class="card-title">
-                  <h3><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></h3>
-                  <p> <%= review.rating %><i class="fas fa-star"></i></p>
-                </div>
-              <p><%= review.content %></p>
-              <% if @user == current_user %>
-              <%= link_to "Supprime ton commentaire", buoy_path(@buoy), method: :delete, data: { confirm: "Es-tu sûr ?" }%>
-              <% end %>
+              <div class="card-title">
+                <h3><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %></h3>
+                <p><% review.rating.times do %>
+                  <i class="fas fa-star"></i>
+                  <% end %>
+                </p>
+              </div>
+              <div class="card-content">
+                <p><%= review.content %></p>
+                <% if review.user == current_user %>
+                  <%= link_to "Supprime", review_path(review), method: :delete, data: { confirm: "Es-tu sûr ?" }, class: "btn-create"%>
+                <% end %>
+              </div>
             </div>
           <% end %>
         </div>

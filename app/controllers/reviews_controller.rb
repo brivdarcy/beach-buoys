@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def new
     @buoy = Buoy.find(params[:buoy_id])
     @review = Review.new
@@ -18,9 +17,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = review.find(params[:id])
+    @review = Review.find(params[:id])
     @review.destroy
-    redirect_to buoy_path(@buoy)
+    redirect_to buoy_path(@review.buoy)
   end
 
   private
