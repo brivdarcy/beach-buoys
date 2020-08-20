@@ -33,10 +33,12 @@ const bookings = JSON.parse(bookingForm.dataset.bookings);
   const totalDays = document.getElementById("total-days")
   const buoyPricePerDay = document.getElementById("buoy-price-per-day").innerText;
   const totalPriceElement = document.getElementById("total-price");
+  const display = document.querySelector(".display")
 
       if(startDate && endDate) {
         [startDate, endDate].forEach(date => {
           date.addEventListener("change", (event) => {
+          display.classList.remove("d-none");
            if (isNaN(dynamicPrice()) === true) {
             totalDays.innerText = 0;
             totalPriceElement.innerText = 0;
