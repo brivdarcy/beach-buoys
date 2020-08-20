@@ -1,22 +1,64 @@
-.profile {
-  margin-top: 40px;
+.container-profile {
+  width: 1300px;
+  margin: 0 auto;
+
 }
+
+.profile-page {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-main-title {
+  font-size: 1.8rem;
+  margin-left: 30px;
+  color: #7fdbda;
+  margin-bottom: 15px;
+}
+
+.profile {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23);
+  margin-top: 50px;
+  width: 30%;
+  position: relative;
+}
+
 
 .profile-element {
   border-bottom: 1px solid #7fdbda;
-  padding-bottom: 24px;
+  margin: 16px 0 16px 0;
 }
 
 .profile-title {
-  font-size: 24px;
+  font-size: 20px;
+  margin-left: 30px;
 }
 
 .profile-paragraph {
   font-size: 20px;
   opacity: 0.5;
+  margin-right: 30px;
 }
 
-.btn {
+.btn-edit {
+  // float: right;
+  margin: 0 10px 10px 0;
+  position: absolute;
+  bottom: 0;
+  right:0;
+}
+
+.all-tables {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableaux {
+  margin-top: 50px;
+}
+
+.btn-back {
   margin: 20px 0 20px 0;
 }
 
@@ -25,14 +67,19 @@ h2 {
   font-weight: bold;
 }
 
+.buoy-avatar {
+  width: 50px;
+}
+
 .profile-buoys {
   width: 50%;
   margin-bottom: 30px;
-
-  .card-trip-infos {
-      display: flex;
-      flex-direction: column;
-      padding-left: 0px;
-      align-items: flex-start;
-    }
 }
+
+//   .card-trip-infos {
+//       display: flex;
+//       flex-direction: column;
+//       padding-left: 0px;
+//       align-items: flex-start;
+//     }
+// }
