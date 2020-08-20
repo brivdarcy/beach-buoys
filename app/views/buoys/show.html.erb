@@ -37,7 +37,7 @@
             </div>
           <% end %>
         </div>
-        <% if current_user != @user %>
+        <% if @buoy.user != current_user %>
           <%= link_to "Ajoute un commentaire", new_buoy_review_path(@buoy), class: "btn btn-outline-secondary"%>
         <% end %>
         <% if @buoy.user == current_user %>
