@@ -5,7 +5,7 @@
 }
 
 .profile-page {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -18,12 +18,12 @@
 }
 
 .profile {
+  height: 300px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23);
   margin-top: 50px;
   width: 30%;
   position: relative;
 }
-
 
 .profile-element {
   border-bottom: 1px solid #7fdbda;
@@ -75,11 +75,3 @@ h2 {
   width: 50%;
   margin-bottom: 30px;
 }
-
-//   .card-trip-infos {
-//       display: flex;
-//       flex-direction: column;
-//       padding-left: 0px;
-//       align-items: flex-start;
-//     }
-// }

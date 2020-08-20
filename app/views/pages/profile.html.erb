@@ -7,32 +7,32 @@
 
       <div class="tableaux">
         <div class="profile-main-title">Mes réservations</div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Bouée</th>
-              <th scope="col">Description</th>
-              <th scope="col">Adresse</th>
-              <th scope="col">Durée</th>
-              <th scope="col">Prix total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @bookings.each do |booking| %>
+          <table class="table">
+            <thead>
               <tr>
-                <% if booking.buoy.photo.attached? %>
-                  <td><%= image_tag booking.buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit, class:"buoy-avatar " %></td>
-                <% end %>
-                  <td><%= booking.buoy.name %></td>
-                  <td><%= booking.buoy.description %></td>
-                  <td><%= booking.buoy.address %></td>
-                  <td><%= booking.duration %> jours</td>
-                  <td><%= booking.total_price %> €</td>
+                <th scope="col"></th>
+                <th scope="col">Bouée</th>
+                <th scope="col">Description</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Durée</th>
+                <th scope="col">Prix total</th>
               </tr>
-            <% end %>
-          </tbody>
-          </table>
+            </thead>
+            <tbody>
+              <% @bookings.each do |booking| %>
+                <tr>
+                  <% if booking.buoy.photo.attached? %>
+                    <td><%= image_tag booking.buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit, class:"buoy-avatar " %></td>
+                  <% end %>
+                    <td><%= booking.buoy.name %></td>
+                    <td><%= booking.buoy.description %></td>
+                    <td><%= booking.buoy.address %></td>
+                    <td><%= booking.duration %> jours</td>
+                    <td><%= booking.total_price %> €</td>
+                </tr>
+              <% end %>
+            </tbody>
+            </table>
        </div>
 
       <div class="tableaux">
@@ -48,17 +48,16 @@
             </tr>
           </thead>
           <tbody>
-            <% @buoys.each do |buoy| %>
+            <% @buoy_bookings.each do |booking| %>
               <tr>
-                <% if buoy.photo.attached? %>
-                  <td><%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit, class:"buoy-avatar" %></td>
+                <% if booking.buoy.photo.attached? %>
+                  <td><%= image_tag booking.buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit, class:"buoy-avatar" %></td>
                 <% end %>
-                <td><%= buoy.name %></td>
-                <td><%= buoy.price %> €</td>
-                <% @bookings.each do |booking| %>
-                  <td><%= booking.user.first_name %> <%= booking.user.last_name %></td>
-                  <td><%= booking.start_date %> au <%= booking.start_date %> </td>
-                <% end %>
+                <td><%= booking.buoy.name %></td>
+                <td><%= booking.buoy.price %> €</td>
+                <td><%= booking.user.first_name %> <%= booking.user.last_name %></td>
+                <td><%= booking.start_date %> au <%= booking.end_date %> </td>
+
               </tr>
             <% end %>
           </tbody>

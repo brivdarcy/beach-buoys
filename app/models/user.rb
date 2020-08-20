@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :email, :encrypted_password, presence: true
   validates :email, uniqueness: true
+  has_many :buoys
+  has_many :bookings
   has_one_attached :photo
   has_many :reviews
 end
