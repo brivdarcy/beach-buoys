@@ -4,6 +4,9 @@ h1 {
 .container {
   width: 1500px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-button {
@@ -13,4 +16,19 @@ h1 {
 .name h2 {
   color: #ffffff;
   font-weight: bold;
+}
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 18px;
+  padding: 16px;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 5px;
+  bottom: 5px;
 }
