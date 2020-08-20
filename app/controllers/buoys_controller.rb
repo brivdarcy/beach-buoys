@@ -3,6 +3,14 @@ class BuoysController < ApplicationController
 
   def index
     @buoys = Buoy.all
+    @buoys = Buoy.geocoded # returns buoys with coordinates
+
+    @markers = @buoys.map do |buoy|
+      {
+        lat: buoy.latitude,
+        lng: buoy.longitude
+      }
+    end
   end
 
   def show
