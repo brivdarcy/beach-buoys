@@ -15,11 +15,25 @@
         <p><%= @buoy.description %></p>
         <p>Pour: <%= @buoy.person_number %> 🙎</p>
         <p>Prix: <span id="buoy-price-per-day"><%= @buoy.price %></span> € / jour</p>
+        <% if current_user != @user %>
+          <%= link_to "Ajoute un commentaire", new_buoy_review_path(@buoy), class: "btn btn-outline-secondary"%>
+        <% end %>
         <% if @buoy.user == current_user %>
         <%= link_to "Modifie les infos de ta bouée", edit_buoy_path, class: "btn btn-outline-secondary" %>
         <%= link_to "Supprime ta bouée", buoys_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn btn-outline-secondary" %>
         <% end %>
         <br>
+      <div class="reviews">
+        <% @buoy.reviews.each do |review| %>
+          <div class="review-card">
+            <p><%= review.rating %></p>
+            <p><%= review.content %></p>
+            <% if @user == current_user %>
+            <%= link_to "Supprime ton commentaire", buoy_path(@buoy), method: :delete, data: { confirm: "Es-tu sûr ?" }%>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
         <%= link_to "Retour aux Bouées", buoys_path, class: "btn btn-outline-secondary" %>
       </div>
     </div>
@@ -28,7 +42,6 @@
       <%= simple_form_for [@buoy, @booking] do |f| %>
         <%= f.input :start_date, label: false, as: :string, required: false, input_html: {id: "range_start", class: "d-none" } %>
         <%= f.input :end_date, label: false, as: :string, required: false, input_html: {id: "range_end", class: "d-none" } %>
-        <%#= f.button :submit, "Réserve", class: "btn-create", type: "button", data: { toggle: "modal", target: "#exampleModal" } %>
         <% if user_signed_in?  %>
           <p>Réservation pour <span id="total-days">0</span> jours</p>
           <p>Du <span id="start-date">0</span> au <span id="end-date">0</p>
@@ -42,22 +55,4 @@
     </div>
   </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirmation de votre location</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Vous avez loué la bouée <%= @buoy.name %> pour un prix de <%= @buoy.price %>euros par jour</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+

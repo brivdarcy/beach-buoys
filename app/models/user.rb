@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, :encrypted_password, presence: true
   validates :email, uniqueness: true
   has_one_attached :photo
+  has_many :reviews
 end
