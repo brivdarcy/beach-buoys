@@ -8,7 +8,7 @@
       <div class="card-trip-image">
         <%= link_to buoy_path(buoy) do %>
           <% if buoy.photo.attached? %>
-            <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+            <%= cl_image_tag buoy.photo.key, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
           <% end %>
         <% end %>
       </div>

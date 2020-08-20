@@ -21,6 +21,38 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.size_carousel {
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(254, 191, 99,0.8);
+}
+
+.carousel-inner {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.carousel-item.active {
+  margin-right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-image: url("icons.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 30px;
+  height: 30px;
+}
+
+
+
+
+// 
+// }
 // .navbar-beachbuoys {
 //   justify-content: space-between;
 //   background: #febf63;
