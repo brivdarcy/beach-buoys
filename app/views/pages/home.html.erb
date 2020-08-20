@@ -18,6 +18,9 @@
         <div class="carousel-item">
       <% end %>
         <%= cl_image_tag buoy.photo.key, alt: "bouée", class: "size_carousel" %>
+        <div class="carousel-caption d-none d-md-block">
+          <h5><%= buoy.name.capitalize %></h5>
+      </div>
       </div>
     <% end %>
   </div>

@@ -38,6 +38,7 @@
   margin-right: 0;
   display: flex;
   justify-content: center;
+  z-index: 1;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
@@ -48,7 +49,19 @@
   height: 30px;
 }
 
-
+.carousel-caption {
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: black;
+  padding-bottom: 0;
+  padding-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background-color: rgba(254, 191, 99, 0.6 );
+  width: 200px;
+  z-index: 2;
+  margin-left: 100px;
+}
 
 
 // 
