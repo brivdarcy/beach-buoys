@@ -1,6 +1,9 @@
 <div class="container">
   <br>
-  <h1>Réserve ta bouée !</h1>
+  <div class="title">
+    <h1>Réserve ta bouée !</h1>
+  </div>
+  
   <br>
   <div class="buoy-details d-flex justify-content-between">
     <div class="buoy-img-infos d-flex flex-column">
@@ -11,8 +14,8 @@
       </div>
       <div class="buoy-infos">
         <h2><%= @buoy.name.capitalize %></h2>
+        <h5><%= @buoy.description %></h5>
         <p>📍 <%= @buoy.address %></p>
-        <p><%= @buoy.description %></p>
         <p>Pour: <%= @buoy.person_number %> 🙎</p>
         <p>Prix: <span id="buoy-price-per-day"><%= @buoy.price %></span> € / jour</p>
         <% if @buoy.user == current_user %>
@@ -26,13 +29,14 @@
 
     <div class="form-wrapper">
       <%= simple_form_for [@buoy, @booking] do |f| %>
-        <%= f.input :start_date, label: false, as: :string, required: false, input_html: {id: "range_start", class: "d-none" } %>
+        <%= f.input :start_date, label: "Sélectionne tes dates:", as: :string, required: false, input_html: {id: "range_start", class: "d-none" } %>
         <%= f.input :end_date, label: false, as: :string, required: false, input_html: {id: "range_end", class: "d-none" } %>
-        <p>Réservation pour <span id="total-days">0</span> jours</p>
-        <p>Prix total : <span id="total-price">0</span> € </p>
         <%#= f.button :submit, "Réserve", class: "btn-create", type: "button", data: { toggle: "modal", target: "#exampleModal" } %>
         <% if user_signed_in?  %>
-        <%= f.button :submit, "Réserve", class: "btn-create" %>
+          <p>Réservation pour <span id="total-days">0</span> jours</p>
+          <p>Du <span id="start-date">0</span> au <span id="end-date">0</p>
+          <p>Prix total : <span id="total-price">0</span> € </p>
+          <%= f.button :submit, "Réserve", class: "btn-create" %>
         <% end %>
       <% end %>
     </div>

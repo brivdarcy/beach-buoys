@@ -33,6 +33,7 @@ class BuoysController < ApplicationController
   @buoy.user = current_user
     if @buoy.save
     redirect_to buoy_path(@buoy)
+
     else
       render :new
     end
