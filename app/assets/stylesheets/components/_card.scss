@@ -148,3 +148,20 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+.review-card {
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  border: 1px solid #ede682;
+  border-radius: 5px;
+  width: 500px;
+}
+.card-title {
+  display: flex;
+  justify-content: space-between;
+   .fas {
+  color: #febf63;
+  }
+}
+.card-title h3 {
+
+}
+
