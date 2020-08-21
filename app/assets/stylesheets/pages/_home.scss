@@ -61,32 +61,16 @@
   width: 200px;
   z-index: 2;
   margin-left: 100px;
+  opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
 }
 
-
-// 
-// }
-// .navbar-beachbuoys {
-//   justify-content: space-between;
-//   background: #febf63;
-// }
-
-// .navbar-beachbuoys .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-beachbuoys .navbar-brand img {
-//   width: 40px;
-// }
-// .nav-item.active{
-//   color: #ade498;
-// }
-
-// .logo-large {
-//   width: 70px;
-//   border-radius: 50%;
-// }
-
+.carousel-caption a:hover {
+      text-decoration: none;
+      color: black;
+  }
 
 .footer {
   background: #7fdbda;
