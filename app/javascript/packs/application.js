@@ -29,17 +29,19 @@ import "bootstrap";
 // Internal imports, e.g:
 import { dynamicPriceCalculator } from '../plugins/flatpickr.js';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   dynamicPriceCalculator()
   initMapbox();
+  initStarRating();
   // Call your functions here, e.g:
   // initSelect2();
 });
 
-import { initStarRating } from '../plugins/init_star_rating';
 
-initStarRating();
+
+
 
 
 
