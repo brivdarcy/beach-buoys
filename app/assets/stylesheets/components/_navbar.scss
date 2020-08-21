@@ -2,7 +2,7 @@
   justify-content: space-between;
   background: #febf63;
   margin-top: 0;
-  heigth: 70px;
+  height: 70px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,3 +25,16 @@
   text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+.menu {
+  margin: 5px;
+  padding-right: 10px;
+  padding-top: 2px;
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

@@ -9,15 +9,12 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <% if user_signed_in? %>
-    <div class="add-button">
-      <%= link_to "Ajoute une bouée", new_buoy_path, class: "btn-create"%>
-    </div>
-  <% end %>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+        <div class="menu">
+          <%= link_to "Ajoute une bouée", new_buoy_path %>
+        </div>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
