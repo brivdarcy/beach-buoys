@@ -19,7 +19,7 @@
       <% end %>
         <%= link_to buoy_path(buoy) do %>
         <% if buoy.photo.attached? %>
-        <%= cl_image_tag buoy.photo.key, alt: "bouée", class: "size_carousel" %>
+          <%= cl_image_tag buoy.photo.key, alt: "bouée", class: "size_carousel" %>
         <% end %>
         <div class="carousel-caption d-none d-md-block">
           <h5><%= buoy.name.capitalize %></h5>
