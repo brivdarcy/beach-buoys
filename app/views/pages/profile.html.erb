@@ -38,7 +38,6 @@
       <div class="tableaux">
         <div class="profile-main-title">Mes bouées à louer</div>
 
-      <%= link_to "#" do  %>
             <% @buoys.each do |buoy| %>
               <% if buoy.photo.attached? %>
                 <%= cl_image_tag buoy.photo.key, alt: "bouée", width: 300, heigth: 200, crop: :fit, class:"buoy-avatar" %>
@@ -46,29 +45,8 @@
               <%= buoy.name %>
 
               <% end %>
-            <% @bookings.each do |booking| %>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-
-            </tr>
-          </thead>
-          <tbody>
-
-              <tr>
-                <td><%= booking.total_price %> €</td>
-                <td><%= booking.user.first_name %> <%= booking.user.last_name %></td>
-                <td><%= booking.start_date %> au <%= booking.end_date %> </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <% end %>
-      </div>
+     </div>
     </div>
 
     <div class="profile">
