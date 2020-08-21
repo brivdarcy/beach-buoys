@@ -7,17 +7,18 @@
         <% @buoys.each do |buoy| %>
           <div class="card-trip">
             <div class="card-trip-image">
-              <% if buoy.photo.attached? %>
-                <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+              <%= link_to buoy_path(buoy) do %>
+                <% if buoy.photo.attached? %>
+                  <%= image_tag buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+                <% end %>
               <% end %>
             </div>
             <div class="card-trip-infos">
               <div class="name">
                 <h2><%= buoy.name %></h2>
                 <p>📍 <%= buoy.address %></p>
-                <%= link_to "Voir détails", buoy_path(buoy), data: { turbolinks: false } %>
+                <h3 class="card-trip-pricing"><%= buoy.price %>€ / jour</h3>
               </div>
-              <h3 class="card-trip-pricing"><%= buoy.price %>€ / jour</h3>
             </div>
           </div>
         <% end %>
