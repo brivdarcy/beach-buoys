@@ -41,12 +41,12 @@
             </div>
           <% end %>
         </div>
-        <% if @buoy.user != current_user %>
+        <% if @buoy.user != current_user && current_user.booked_buoy?(@buoy) %>
           <%= link_to "Ajoute un commentaire", new_buoy_review_path(@buoy), class: "btn btn-outline-secondary"%>
         <% end %>
         <% if @buoy.user == current_user %>
-        <%= link_to "Modifie les infos de ta bouée", edit_buoy_path, class: "btn btn-outline-secondary" %>
-        <%= link_to "Supprime ta bouée", buoys_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn btn-outline-secondary" %>
+          <%= link_to "Modifie les infos de ta bouée", edit_buoy_path, class: "btn btn-outline-secondary" %>
+          <%= link_to "Supprime ta bouée", buoys_path, method: :delete, data: {confirm: "Es-tu sûr ?"}, class: "btn btn-outline-secondary" %>
         <% end %>
         <br>
         <%= link_to "Retour aux Bouées", buoys_path, class: "btn btn-outline-secondary" %>

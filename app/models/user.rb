@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_many :bookings
   has_one_attached :photo
   has_many :reviews
+
+  def booked_buoy?(buoy)
+    bookings.any? { |booking| booking.buoy == buoy }
+  end
 end
