@@ -45,10 +45,6 @@ const bookings = JSON.parse(bookingForm.dataset.bookings);
            } else {
             totalDays.innerText = dynamicPrice();
             totalPriceElement.innerText = dynamicPrice() * buoyPricePerDay;
-            const dateFrom = document.getElementById("start-date");
-            const dateTo = document.getElementById("end-date");
-            dateFrom.innerText = startDate.value;
-            dateTo.innerText = endDate.value;
            }
           });
         })

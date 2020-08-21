@@ -60,7 +60,6 @@
         <div class="d-none display">
         <% if user_signed_in?  %>
           <p>Réservation pour <span id="total-days">0</span> jours</p>
-          <p>Du <span id="start-date">0</span> au <span id="end-date">0</p>
           <p>Prix total : <span id="total-price">0</span> € </p>
           <%= f.button :submit, "Réserve", class: "btn-create" %>
          <% end %>
