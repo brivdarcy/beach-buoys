@@ -13,7 +13,7 @@
     <div class="buoy-img-infos d-flex flex-column">
       <div class="buoy-img">
         <% if @buoy.photo.attached? %>
-         <%= image_tag @buoy.photo, alt: "bouée", width: 300, heigth: 200, crop: :fit %>
+         <%= image_tag @buoy.photo, class: "buoy_img", alt: "bouée", width: 300, heigth: 200, crop: :fit %>
         <% end %>
       </div>
       <div class="buoy-infos">

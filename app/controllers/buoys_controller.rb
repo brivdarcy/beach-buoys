@@ -8,7 +8,8 @@ class BuoysController < ApplicationController
     @markers = @buoys.map do |buoy|
       {
         lat: buoy.latitude,
-        lng: buoy.longitude
+        lng: buoy.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { buoy: buoy })
       }
     end
   end
