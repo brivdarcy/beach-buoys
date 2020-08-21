@@ -1,2 +1,2 @@
-<h2><%= buoy.name %></h2>
-<p><%= buoy.address %></p>
+<h2><%= link_to buoy.name, buoy_path(buoy) %></h2>
+<p><%= link_to buoy.address, buoy_path(buoy) %></p>
